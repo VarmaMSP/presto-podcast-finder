@@ -10,7 +10,8 @@ import Presto.Core.Types.Language.Interaction (class Interact, defaultInteract)
 import Product.Types (Podcast)
 
 data ResultsScreen       = ResultsScreen (Array Podcast)
-data ResultsScreenAction = ResultsDisplayed | MakeNewSearch
+data ResultsScreenAction = ResultsDisplayed
+                         | MakeNewSearch
 
 ------------------------------------
 ------------- instances ------------

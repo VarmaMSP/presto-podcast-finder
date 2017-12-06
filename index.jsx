@@ -16,7 +16,8 @@ window.__duiShowScreen = (callback, { screen, contents }) => {
       , "ResultsScreen": <ResultsScreen podcasts={contents}/>
       }
 	window.__setCallback(callback)
-	console.log("screen :", screen, contents)
+
+	window.history.pushState({x : '2'}, 'results');
 	try {
 		ReactDOM.render(
       screens[screen],

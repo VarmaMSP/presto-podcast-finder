@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { Input, Button, Header } from 'semantic-ui-react'
+
 export default class SearchScreen extends Component {
   constructor(props) {
     super(props);
@@ -30,13 +32,36 @@ export default class SearchScreen extends Component {
     let { searchTerm } = this.state;
 
     return (
-      <div>
-        <input type="text"
-          onChange={this.handleSearchTermChange}
-        />
+      <div style={containerStyle}>
+        <div style={titleStyle}>
+          <Header size="huge">Podcast Finder</Header>
+        </div>
+        <div style={inputStyle}>
+          <Input type='text' size='big' fluid
+            placeholder='Search for podcasts ... '
+            onChange={this.handleSearchTermChange}
+          />
+        </div>
         <br/>
-        <button onClick={this.handleSearchTermSubmit}>SUBMIT</button>
+        <div style={buttonStyle}>
+          <Button fluid onClick={this.handleSearchTermSubmit}>SEARCH</Button>
+        </div>
       </div>
     );
   }
 }
+
+const containerStyle = { marginTop: "10rem"};
+const titleStyle  = { textAlign: "center"
+                    , fontSize: "2.5rem"
+                    , marginBottom: "0.5rem"
+                    }
+const inputStyle  = { width: "50%"
+                    , marginLeft: "auto"
+                    , marginRight: "auto"
+                    , textAlign: "center"
+                    };
+const buttonStyle = { width: "40%"
+                    , marginLeft: "auto"
+                    , marginRight: "auto"
+                    };

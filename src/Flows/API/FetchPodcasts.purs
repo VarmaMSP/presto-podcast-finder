@@ -33,7 +33,7 @@ newtype FetchPodcastsRequest = FetchPodcastsRequest
 ---------- Instances to encode and decode above types ---------
 ---------------------------------------------------------------
 instance fetchPodcastsAPI :: RestEndpoint FetchPodcastsRequest FetchPodcastsResponse where
-  makeRequest req headers = defaultMakeRequest POST "http://localhost:8080/search" headers req
+  makeRequest req headers = defaultMakeRequest POST "/search" headers req
   decodeResponse body     = defaultDecodeResponse body
 
 derive instance genericFetchPodcastsRequest :: Generic FetchPodcastsRequest _
@@ -57,10 +57,10 @@ instance encodeFetchPodcastsresult :: Encode FetchPodcastsResult where
 
 fetchPodcasts :: SearchTerm -> Flow (APIResult FetchPodcastsResult)
 fetchPodcasts t = do
-  let request = FetchPodcastsRequest {term : t, limit : 10.0, entity : "podcast"}
+  let request = FetchPodcastsRequest {term : t, limit : 14.0, entity : "podcast"}
   let headers = Headers [Header "Content-Type" "application/json"]
   response    <- callAPI headers request
-  _ <- pure $ logAny response
+
   case response of
     Left err                                     -> pure $ Left err
     Right (FetchPodcastsResponse {response : x}) -> pure $ Right x
