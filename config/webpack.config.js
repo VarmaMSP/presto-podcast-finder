@@ -4,7 +4,7 @@ const PROJECT_PATH = path.join(__dirname, '..')
 
 module.exports = {
   entry: [
-    path.join(PROJECT_PATH, 'index.js')
+    path.join(PROJECT_PATH, 'index.jsx')
   ],
   output: {
     path: path.join(PROJECT_PATH, 'dist'),
