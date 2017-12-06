@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 
-import { Card, Image, Icon, Header, Divider } from 'semantic-ui-react';
+import { Card, Image, Icon, Header, Divider, Button } from 'semantic-ui-react';
 
 export default class ResultsScreen extends Component {
   constructor(props) {
     super(props);
     this.handleNewSearch = this.handleNewSearch.bind(this);
+    this.handleNextPage  = this.handleNextPage.bind(this);
+    this.handlePrevPage  = this.handlePrevPage.bind(this);
   }
 
   handleNewSearch(e) {
@@ -19,6 +21,20 @@ export default class ResultsScreen extends Component {
   componentDidMount() {
     window.__runDuiCallback(JSON.stringify({
       tag: "ResultsDisplayed",
+      contents: undefined
+    }));
+  }
+
+  handleNextPage() {
+    window.__runDuiCallback(JSON.stringify({
+      tag: "NextPage",
+      contents: undefined
+    }));
+  }
+
+  handlePrevPage() {
+    window.__runDuiCallback(JSON.stringify({
+      tag: "PrevPage",
       contents: undefined
     }));
   }
@@ -46,6 +62,14 @@ export default class ResultsScreen extends Component {
         <Card.Group itemsPerRow={7}>
           {renderedPodcasts}
         </Card.Group>
+        <div style={paginationStyle}>
+          <Button icon="chevron left"
+            onClick={this.handlePrevPage}
+          />
+          <Button icon="chevron right"
+            onClick={this.handleNextPage}
+          />
+        </div>
       </div>
     );
   }
@@ -58,3 +82,4 @@ const headerStyle = { marginBottom: "1rem"
 const iconStyle = { float: "left"
                   , marginRight: "0.4rem"
                   }
+const paginationStyle = { marginTop: '0.5rem' }

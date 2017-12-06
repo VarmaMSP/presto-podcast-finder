@@ -12,6 +12,8 @@ import Product.Types (Podcast)
 data ResultsScreen       = ResultsScreen (Array Podcast)
 data ResultsScreenAction = ResultsDisplayed
                          | MakeNewSearch
+                         | NextPage
+                         | PrevPage
 
 ------------------------------------
 ------------- instances ------------
@@ -19,12 +21,10 @@ data ResultsScreenAction = ResultsDisplayed
 instance resultsScreenInteract :: Interact Error ResultsScreen ResultsScreenAction where
   interact x = defaultInteract x
 
--- to encode screen to JSON
-derive instance genericResultsScreen       :: Generic ResultsScreen _
+derive instance genericResultsScreen :: Generic ResultsScreen _
 instance encodegenericResultsScreen :: Encode ResultsScreen where
   encode = genericEncode (defaultOptions {unwrapSingleConstructors = false})
 
--- to decode screen from JSON
 derive instance genericResultsScreenAction :: Generic ResultsScreenAction _
 instance decodegenericResultsScreenAction :: Decode ResultsScreenAction where
   decode = genericDecode (defaultOptions {unwrapSingleConstructors = false})

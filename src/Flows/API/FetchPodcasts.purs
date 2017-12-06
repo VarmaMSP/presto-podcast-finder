@@ -25,7 +25,7 @@ newtype FetchPodcastsResponse = FetchPodcastsResponse
 
 newtype FetchPodcastsRequest = FetchPodcastsRequest
   { term   :: SearchTerm
-  , limit  :: Number
+  , limit  :: Int
   , entity :: String
   }
 
@@ -57,7 +57,7 @@ instance encodeFetchPodcastsresult :: Encode FetchPodcastsResult where
 
 fetchPodcasts :: SearchTerm -> Flow (APIResult FetchPodcastsResult)
 fetchPodcasts t = do
-  let request = FetchPodcastsRequest {term : t, limit : 14.0, entity : "podcast"}
+  let request = FetchPodcastsRequest {term : t, limit : 100, entity : "podcast"}
   let headers = Headers [Header "Content-Type" "application/json"]
   response    <- callAPI headers request
 
