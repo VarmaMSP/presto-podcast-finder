@@ -52,16 +52,16 @@ export default class SearchScreen extends Component {
 }
 
 const containerStyle = { marginTop: "10rem"};
-const titleStyle  = { textAlign: "center"
-                    , fontSize: "2.5rem"
-                    , marginBottom: "0.5rem"
-                    }
-const inputStyle  = { width: "50%"
-                    , marginLeft: "auto"
-                    , marginRight: "auto"
-                    , textAlign: "center"
-                    };
-const buttonStyle = { width: "40%"
-                    , marginLeft: "auto"
-                    , marginRight: "auto"
-                    };
+const titleStyle     = { textAlign: "center"
+                       , fontSize: "2.5rem"
+                       , marginBottom: "0.5rem"
+                       }
+const inputStyle     = { width: "50%"
+                       , marginLeft: "auto"
+                       , marginRight: "auto"
+                       , textAlign: "center"
+                       };
+const buttonStyle    = { width: "40%"
+                       , marginLeft: "auto"
+                       , marginRight: "auto"
+                       };

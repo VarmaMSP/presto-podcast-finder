@@ -8,7 +8,6 @@ import Data.Generic.Rep (class Generic)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Presto.Core.Types.API (class RestEndpoint, Method(POST), defaultDecodeResponse, defaultMakeRequest, Header(..), Headers(..))
 import Presto.Core.Types.Language.Flow (Flow, APIResult)
-import Presto.Core.Utils.Encoding (defaultDecode, defaultEncode)
 import Presto.Core.Flow (callAPI)
 import Presto.Core.Types.Language.Flow (Flow)
 

@@ -55,31 +55,36 @@ export default class ResultsScreen extends Component {
             <Icon name="arrow left" size="large"
               onClick={this.handleNewSearch}
             />
+            {/* <Header as='h3'>go back</Header> */}
           </div>
-          <Header as='h3'>  Search Results</Header>
+
+          <div style={paginationStyle}>
+            <Button icon="chevron left"
+              onClick={this.handlePrevPage}
+            />
+            <Button icon="chevron right"
+              onClick={this.handleNextPage}
+            />
+          </div>
         </div>
+        <br/><br/>
         <Divider/>
         <Card.Group itemsPerRow={7}>
           {renderedPodcasts}
         </Card.Group>
-        <div style={paginationStyle}>
-          <Button icon="chevron left"
-            onClick={this.handlePrevPage}
-          />
-          <Button icon="chevron right"
-            onClick={this.handleNextPage}
-          />
-        </div>
       </div>
     );
   }
 }
 
-const containerStyle = {padding: "0.4rem"};
-const headerStyle = { marginBottom: "1rem"
-                    , marginTop: "0.5rem"
-                    };
-const iconStyle = { float: "left"
-                  , marginRight: "0.4rem"
-                  }
-const paginationStyle = { marginTop: '0.5rem' }
+const containerStyle  = { padding: "0.4rem" };
+const headerStyle     = { marginBottom: "1rem"
+                        , marginTop: "0.5rem"
+                        };
+const iconStyle       = { float: "left"
+                        , marginRight: "1.5rem"
+                        , marginTop: "0.7rem"
+                        }
+const paginationStyle = { marginTop: '0.5rem'
+                        , float: "right"
+                        }
